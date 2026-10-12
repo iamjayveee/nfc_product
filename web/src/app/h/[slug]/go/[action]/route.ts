@@ -1,4 +1,5 @@
 import type { NextRequest } from "next/server";
+import { isCountableVisit } from "@/lib/bots";
 import { normalizeCode } from "@/lib/codes";
 import { tempRedirect } from "@/lib/http";
 import { getCafeBySlug, HUB_ACTIONS, recordTap, type HubAction } from "@/lib/repo";
@@ -12,10 +13,12 @@ export async function GET(request: NextRequest, ctx: RouteContext<"/h/[slug]/go/
   if (!cafe) return tempRedirect("/", request.url);
 
   const code = normalizeCode(request.nextUrl.searchParams.get("a") ?? "");
-  try {
-    await recordTap(cafe.id, code, action as HubAction);
-  } catch (error) {
-    console.error("tap not recorded", error);
+  if (isCountableVisit(request.method, request.headers.get("user-agent"))) {
+    try {
+      await recordTap(cafe.id, code, action as HubAction);
+    } catch (error) {
+      console.error("tap not recorded", error);
+    }
   }
   return tempRedirect(`/h/${slug}/${action}${code ? `?a=${code}` : ""}`, request.url);
 }

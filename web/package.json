@@ -11,7 +11,8 @@
     "db:up": "docker compose up -d --wait",
     "db:down": "docker compose down",
     "db:migrate": "node --env-file-if-exists=.env.local scripts/migrate.mjs",
-    "db:seed-demo": "node --env-file-if-exists=.env.local scripts/run-sql.mjs db/seed-demo.sql"
+    "db:seed-demo": "node --env-file-if-exists=.env.local scripts/run-sql.mjs db/seed-demo.sql",
+    "db:seed-demo-activity": "node --env-file-if-exists=.env.local scripts/run-sql.mjs db/seed-demo-activity.sql"
   },
   "dependencies": {
     "next": "16.4.0",

@@ -11,7 +11,15 @@ values (
 )
 on conflict (slug) do nothing;
 
--- Test artifact code for the unlocked development sticker.
+update cafes set is_demo = true where slug = 'demo-cafe';
+
+-- Unlocked development sticker plus the demo set (card, badge, 3D model).
 insert into artifacts (code, cafe_id, label)
-select 'TEST2', id, 'Unlocked test sticker' from cafes where slug = 'demo-cafe'
+select v.code, c.id, v.label
+from cafes c,
+  (values ('TEST2', 'Unlocked test sticker'),
+          ('CARD7', 'Demo card'),
+          ('BADG3', 'Demo badge'),
+          ('STND4', 'Demo 3D model')) as v (code, label)
+where c.slug = 'demo-cafe'
 on conflict (code) do nothing;
