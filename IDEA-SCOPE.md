@@ -199,7 +199,7 @@ Note: Signal 1 has no pitch denominator by sponsor decision; the specialist reco
 6. Privacy notice on the review page; contact fields optional.
 7. Cafes are configuration, set up by Madrid; no self-serve.
 8. The redirect service is the one permanent component and runs within the ₱10,000 budget until a pilot pays.
-Left to build: technology stack; how "join WiFi" renders (name + password + copy is acceptable).
+Technology stack and hosting: §15 (2026-10-12). Left to build: how "join WiFi" renders (name + password + copy is acceptable).
 
 ## 13. Definition of Done and Acceptance
 ### Output complete
@@ -244,6 +244,11 @@ A customer's phone has NFC off or no background NFC reading. They scan the QR co
 | Self-serve onboarding after 2026-11-30 | Deferred | Out of 20-day window | Madrid | 2026-10-11 | 2026-11-30 |
 | Workspace in `scope/` | Confirmed | Single-initiative repo | Madrid | 2026-10-11 | Second initiative |
 | Stage 2 website free for the initial contract, then upsold at a low price from a jointly set date | Confirmed (date, price Open) | Lowers the barrier to sign; keeps a revenue path | Madrid + partner | 2026-10-11 | Stage 2 scoping |
+| Stack: Next.js (App Router) + TypeScript as a standalone server with Dockerfile; postgres.js + SQL migrations; Tailwind; Vitest; one storage module for menu photos; owner-login library chosen at Stage 2 | Confirmed | Builder knows Next.js; moves to a VPS by redeploy, not rewrite | Madrid | 2026-10-12 | VPS move |
+| Hosting: Vercel Hobby + Supabase free (Singapore) through Build and Pitch; partner's VPS when the first pilot signs | Confirmed | ₱0 recurring during Build; Vercel Hobby is non-commercial, so paid pilot traffic leaves it | Madrid | 2026-10-12 | First pilot signed |
+| Domain `bizkonek.com`, prepaid multi-year (§11); registrar left to Madrid + partner; artifact URLs `bizkonek.com/a/<code>`, 4–6 characters without look-alikes (0/O, 1/I/L) | Confirmed | Only Madrid's domain survives host moves (§12.2); short code keeps QR sparse | Madrid | 2026-10-12 | Renewal date |
+| Uptime: Better Stack free monitor on `/health`, which reads the database | Confirmed | Alerts on outage and keeps the free Supabase project from pausing | Madrid | 2026-10-12 | Host move |
+| `vercel.app` URLs only on unprinted, unlocked test chips; URL final (`bizkonek.com`) at print; lock when an artifact leaves Madrid's hands | Confirmed | Printed QR cannot change; chip lock is irreversible | Madrid | 2026-10-12 | — |
 
 ## 16. Open and Deferred Items
 | Item | State | What is Needed | Owner | Due Date or Trigger | Blocks |
@@ -254,6 +259,7 @@ A customer's phone has NFC off or no background NFC reading. They scan the QR co
 | Stage 2 upsell date and price | Deferred | Date and low price for paid Stage 2 | Madrid + partner | When Stage 2 is scoped | — |
 | Data Privacy Act controller vs processor role | Open — Verification | Determine role; draft contract clause | Madrid | Before any pitch | Pilot contract |
 | NPC registration threshold | Open — Verification | Confirm whether pilot scale requires registration | Madrid | Before any pitch | Pilot contract |
+| Free-tier terms: Vercel Hobby commercial-use limit; Better Stack free commercial use (fallback UptimeRobot); Supabase Singapore storage under the Data Privacy Act check | Open — Verification | Confirm against official terms pages | Madrid | Hosting setup (by 2026-10-15) | Hosting setup |
 | Google Business Profile API access process and lead time | Open — Verification | Application path and timeline | Madrid | When a pilot is signed | Conditional review pull |
 | Self-serve onboarding | Deferred | Separate scoping | Madrid | After 2026-11-30 | — |
 | Stage 2 website | Deferred (parked) | Separate ASMP scope | Madrid | Signal 1 passes | — |

@@ -1,0 +1,26 @@
+# Local development database only (production uses Supabase, later the VPS).
+# Everything is namespaced "bizkonek" so it cannot collide with other projects:
+#   container  bizkonek-db-1      volume  bizkonek_db-data
+#   port       127.0.0.1:55432    (not 5432, not Supabase CLI's 54320–54329;
+#                                  reachable from this machine only)
+name: bizkonek
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: bizkonek
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d bizkonek"]
+      interval: 2s
+      timeout: 3s
+      retries: 15
+
+volumes:
+  db-data:

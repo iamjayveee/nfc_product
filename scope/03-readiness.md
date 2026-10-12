@@ -98,3 +98,4 @@ Applied to `01-foundation.md` and `02-boundary.md` (see their revision logs):
 | --- | --- | --- |
 | 2026-10-11 | Created: readiness checkpoint after Phases J–L and gates | Claude Code |
 | 2026-10-11 | Synthesis review S-1: Stage 2 website free during initial contract, upsold at a low price from a jointly set date; Open item "free vs cheaper" closed, "initial contract length" opened (recorded in `IDEA-SCOPE.md` §5, §15, §16) | Claude Code |
+| 2026-10-12 | Stack and hosting chosen: Next.js + TypeScript on Vercel + Supabase free until first pilot, then partner's VPS; `bizkonek.com` (registrar left to Madrid + partner); Better Stack monitor; `vercel.app` only on unprinted, unlocked test chips; free-tier terms verification opened (recorded in `IDEA-SCOPE.md` §12, §15, §16) | Claude Code |
